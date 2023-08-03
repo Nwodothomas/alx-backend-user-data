@@ -22,11 +22,11 @@ def filter_datum(fields: List[str], redaction: str,
     Returns:
         str: The filtered string message with redacted values
     """
-    # Loop through each field to be redacted
     for f in fields:
-        # Use regular expression to replace sensitive information with the redaction string
-        # The regex pattern looks for occurrences of the field followed by "=" and any characters until the separator
-        # It then replaces this portion with the field followed by "=" and the redaction string followed by the separator
+        """ Use regular expression to replace sensitive information with the redaction string
+            The regex pattern looks for occurrences of the field followed by "=" and any characters until the separator
+            It then replaces this portion with the field followed by "=" and the redaction string followed by the separator
+        """
         message = re.sub(f'{f}=.*?{separator}',
                          f'{f}={redaction}{separator}', message)
     return message
