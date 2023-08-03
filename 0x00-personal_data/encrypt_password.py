@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Module for Secure Password Encryption and Validation
+Password Encryption and Validation Module
 """
-
 import bcrypt
 
+
 def hash_password(password: str) -> bytes:
-     """
+    """
         Generates a salted and hashed password.
 
         Args:
@@ -16,13 +16,14 @@ def hash_password(password: str) -> bytes:
         Returns:
                 bytes: A byte string representing the salted, hashed password.
         """
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(password.encode(), salt)
+    encoded = password.encode()
+    hashed = bcrypt.hashpw(encoded, bcrypt.gensalt())
 
-    return hashed_password
+    return hashed
+
 
 def is_valid(hashed_password: bytes, password: str) -> bool:
-     """
+    """
         Validates whether the provided password matches the hashed password.
 
         Args:
@@ -34,5 +35,9 @@ def is_valid(hashed_password: bytes, password: str) -> bool:
         Returns:
                 bool: True if the provided password matches the hashed
                 password, False otherwise.
-      """
-    return bcrypt.checkpw(password.encode(), hashed_password)
+        """
+    valid = False
+    encoded = password.encode()
+    if bcrypt.checkpw(encoded, hashed_password):
+        valid = True
+    return valid
