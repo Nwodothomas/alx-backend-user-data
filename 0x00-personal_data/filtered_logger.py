@@ -27,3 +27,6 @@ def filter_datum(fields: List[str], redaction: str,
         message = re.sub(f'{f}=.*?{separator}',
                          f'{f}={redaction}{separator}', message)
     return message
+
+if __name__ == '__main__':
+    main()
