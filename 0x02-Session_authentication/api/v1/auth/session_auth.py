@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Module for API authentication using Session auth
+Session authentication module
 """
 
 
