@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Module for User authentication with session-based login and logout
+""" Module for User views
 """
 import os
 from api.v1.views import app_views
