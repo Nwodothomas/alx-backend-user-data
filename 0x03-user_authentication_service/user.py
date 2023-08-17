@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""_summary_
+"""SQLAlchemy model for User
 """
 
 
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.ext.declarative import declarative_base
+
 Base = declarative_base()
 
 
